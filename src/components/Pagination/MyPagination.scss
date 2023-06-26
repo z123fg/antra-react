@@ -1,0 +1,59 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.page-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.page-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-style: none;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.change-page-btn {
+  border-style: none;
+  cursor: pointer;
+}
+
+.primary {
+  color: #fff;
+  background-color: #1976d2;
+}
+
+.secondary {
+  color: #fff;
+  background-color: #9c27b0;
+}
+
+.standard {
+  color: black;
+  background-color: #fff;
+}
+
+.circular {
+  border-radius: 50%;
+  width: 20px; /* Adjust the width and height as per your requirement */
+  height: 20px;
+}
+
+.rounded {
+  border-radius: 10px;
+  width: 20px; /* Adjust the width and height as per your requirement */
+  height: 30px;
+}
