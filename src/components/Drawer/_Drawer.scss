@@ -1,0 +1,66 @@
+@use "../../scss/variable";
+@use "../../scss/mixin";
+
+
+.dwrBackground {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: gray;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+.dwr {
+    position: absolute;
+    z-index: 2;
+    background-color: lightcyan;
+    padding: 16px;
+};
+
+$anchor-map: (
+    left: (
+        left: 0,
+        top: 50%,
+        transform: translateY(-50%),
+        background-color: red,
+    ),
+    right: (
+        right: 0,
+        top: 50%,
+        transform: translateY(-50%),
+        background-color: green,
+    ),
+    top: (
+
+    ),
+    bottom: (
+
+    )
+);
+
+@mixin anchor-variant-class($anchor, $variant) {
+    .dwr-#{$anchor}-#{$variant} {
+        @if $anchor == "left" {
+            left: 0;
+            height: 100%;
+        }
+        @else if $anchor == "right" {
+            right: 0;
+            height: 100%;
+        }
+    }
+}
+
+$anchors: ("left", "right", "top", "bottom");
+$variants: ("permanent", "persistent", "temporary");
+
+@mixin generate-anchor-variant-classes {
+    @each $variant in $variants {
+        @each $anchor in $anchors {
+            @include anchor-variant-class($anchor, $variant);
+        }
+    }
+}
+
+@include generate-anchor-variant-classes();
