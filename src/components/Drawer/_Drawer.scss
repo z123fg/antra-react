@@ -1,0 +1,59 @@
+@use "../../scss/variable";
+@use "../../scss/mixin";
+
+
+.dwrBackground {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+}
+
+.dwr {
+    z-index: 1200;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%,
+};
+
+@mixin anchor-variant-class($anchor, $variant) {
+    .dwr-#{$anchor}-#{$variant} {
+        @if $anchor == "left" {
+            left: 0;
+        }
+        @else if $anchor == "right" {
+            right: 0;
+        }
+
+        @if $variant == "persistent" {
+            flex: 0, 0, auto;
+        }
+        @else if $variant == "temporary" {
+            position: fixed;
+            top: 0;
+        }
+    }
+}
+
+$anchors: ("left", "right", "top", "bottom");
+$variants: ("permanent", "persistent", "temporary");
+
+@mixin generate-anchor-variant-classes {
+    @each $variant in $variants {
+        @each $anchor in $anchors {
+            @include anchor-variant-class($anchor, $variant);
+        }
+    }
+}
+
+@include generate-anchor-variant-classes();
