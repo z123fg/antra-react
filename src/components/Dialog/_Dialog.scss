@@ -1,0 +1,79 @@
+.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+
+
+  .dialog-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .dialog-body {
+    position: relative;
+    background-color: #fff;
+    width: 400px;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .dialog-close-button {
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  }
+
+  .dialog-content {
+    margin-bottom: 20px;
+    p {
+      margin: 0;
+      color: rgb(117, 117, 117);
+    }
+  }
+
+  .dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    .dialog-action-button {
+      padding: 8px 16px;
+      margin-left: 10px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: #fff;
+      color: rgb(25, 118, 210);
+      &:hover {
+        background-color: rgb(246, 250, 254);
+      }
+    }
+  }
+}
