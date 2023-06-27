@@ -23,12 +23,24 @@
   padding: 5px;
   margin: 5px;
   border-radius: 5px;
-  cursor: pointer;
+  cursor: default;
+}
+
+.pagination.disabled .page-number {
+  color: grey;
+  cursor: default;
+  pointer-events: none;
 }
 
 .change-page-btn {
   border-style: none;
   cursor: pointer;
+}
+
+.pagination.disabled .change-page-btn {
+  color: grey;
+  cursor: default;
+  pointer-events: none;
 }
 
 .primary {

@@ -10,8 +10,8 @@ function App() {
     <div className="App">
       {/* <MyButton>Submit</MyButton>
       <MyButton variant="outlined" color="secondary" size="small">submit</MyButton> */}
-      <MyPagination count={20} color="secondary" shape="rounded" />
-      <Pagination count={20} color="secondary" shape="rounded" />
+      <MyPagination count={20} color="secondary" shape="circular" disabled />
+      <Pagination count={20} color="secondary" shape="circular" disabled />
     </div>
   );
 }

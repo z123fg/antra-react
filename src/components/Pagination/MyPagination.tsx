@@ -5,9 +5,15 @@ interface MyPaginationProps {
   count: number;
   color?: 'primary' | 'secondary' | 'standard';
   shape?: 'circular' | 'rounded';
+  disabled?: boolean;
 }
 
-const MyPagination: React.FC<MyPaginationProps> = ({ count, color, shape }) => {
+const MyPagination: React.FC<MyPaginationProps> = ({
+  count,
+  color,
+  shape,
+  disabled = false,
+}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const firstFiveItems = [1, 2, 3, 4, 5];
   const lastFiveItems = [count - 4, count - 3, count - 2, count - 1, count];
@@ -48,8 +54,11 @@ const MyPagination: React.FC<MyPaginationProps> = ({ count, color, shape }) => {
   }, [count]);
 
   return (
-    <div className={'pagination'}>
-      <button className="change-page-btn" onClick={handlePrev}>{`<`}</button>
+    <div className={'pagination' + (disabled ? ' disabled' : '')}>
+      <button
+        className={'change-page-btn' + (disabled ? ' disabled' : '')}
+        onClick={handlePrev}
+      >{`<`}</button>
       <ul className="page-list">
         {count <= 6 &&
           firstNItems.map((index) => (
@@ -57,7 +66,7 @@ const MyPagination: React.FC<MyPaginationProps> = ({ count, color, shape }) => {
               className={
                 'page-number ' +
                 (shape ? `${shape} ` : '') +
-                (color && index === currentPage ? `${color}` : '')
+                (color && !disabled && index === currentPage ? `${color}` : '')
               }
               key={index}
               onClick={() => handleUpdatePage(index)}
@@ -72,7 +81,9 @@ const MyPagination: React.FC<MyPaginationProps> = ({ count, color, shape }) => {
                 className={
                   'page-number ' +
                   (shape ? `${shape} ` : '') +
-                  (color && index === currentPage ? `${color}` : '')
+                  (color && !disabled && index === currentPage
+                    ? `${color}`
+                    : '')
                 }
                 key={index}
                 onClick={() => handleUpdatePage(index)}
@@ -85,7 +96,7 @@ const MyPagination: React.FC<MyPaginationProps> = ({ count, color, shape }) => {
               className={
                 'page-number ' +
                 (shape ? `${shape} ` : '') +
-                (color && count === currentPage ? `${color}` : '')
+                (color && !disabled && count === currentPage ? `${color}` : '')
               }
               key={count}
               onClick={() => handleUpdatePage(count)}
@@ -100,7 +111,7 @@ const MyPagination: React.FC<MyPaginationProps> = ({ count, color, shape }) => {
               className={
                 'page-number ' +
                 (shape ? `${shape} ` : '') +
-                (color && 1 === currentPage ? `${color}` : '')
+                (color && !disabled && 1 === currentPage ? `${color}` : '')
               }
               key={1}
               onClick={() => handleUpdatePage(1)}
@@ -115,7 +126,9 @@ const MyPagination: React.FC<MyPaginationProps> = ({ count, color, shape }) => {
                   className={
                     'page-number ' +
                     (shape ? `${shape} ` : '') +
-                    (color && index === currentPage ? `${color}` : '')
+                    (color && !disabled && index === currentPage
+                      ? `${color}`
+                      : '')
                   }
                   key={index}
                   onClick={() => handleUpdatePage(index)}
@@ -130,7 +143,9 @@ const MyPagination: React.FC<MyPaginationProps> = ({ count, color, shape }) => {
                   className={
                     'page-number ' +
                     (shape ? `${shape} ` : '') +
-                    (color && index === currentPage ? `${color}` : '')
+                    (color && !disabled && index === currentPage
+                      ? `${color}`
+                      : '')
                   }
                   key={index}
                   onClick={() => handleUpdatePage(index)}
@@ -143,7 +158,9 @@ const MyPagination: React.FC<MyPaginationProps> = ({ count, color, shape }) => {
                 className={
                   'page-number ' +
                   (shape ? `${shape} ` : '') +
-                  (color && count === currentPage ? `${color}` : '')
+                  (color && !disabled && count === currentPage
+                    ? `${color}`
+                    : '')
                 }
                 key={count}
                 onClick={() => handleUpdatePage(count)}
@@ -154,7 +171,10 @@ const MyPagination: React.FC<MyPaginationProps> = ({ count, color, shape }) => {
           </>
         )}
       </ul>
-      <button className="change-page-btn" onClick={handleNext}>{`>`}</button>
+      <button
+        className={'change-page-btn' + (disabled ? ' disabled' : '')}
+        onClick={handleNext}
+      >{`>`}</button>
     </div>
   );
 };
