@@ -1,0 +1,26 @@
+@use "../../scss/variable";
+@use "../../scss/mixin";
+
+.rating-default {
+  color: variable.$primary-color;
+}
+
+.rating-highlighted {
+  color: rgba(255, 180, 0, 1);
+}
+
+.rating-disabled {
+  opacity: 0.5;
+}
+
+.rating-small {
+  font-size: 0.5rem;
+}
+
+.rating-medium {
+  font-size: 1rem;
+}
+
+.rating-large {
+  font-size: 1.5rem;
+}
