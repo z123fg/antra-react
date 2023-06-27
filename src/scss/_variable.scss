@@ -1,19 +1,24 @@
-$primary-color: #3F51B5;;
-$secondary-color:#F50057;
-$default-color:#E0E0E0;
+$primary-color: #3f51b5;
+$secondary-color: #f50057;
+$default-color: #e0e0e0;
 
-$primary-color-hover: #303F9F;
-$secondary-color-hover:#C51162;
-$default-color-hover:#D5D5D5;
+$primary-color-hover: #303f9f;
+$secondary-color-hover: #c51162;
+$default-color-hover: #d5d5d5;
+
+$primary-color-unchecked: #3f51b550;
+$secondary-color-unchecked: #f5005750;
+$default-color-unchecked: #e0e0e050;
 
 /* 
 $primary-color-hover-light: rgba(63, 81, 181, 0.08);;
 $secondary-color-hover-light:rgba(245, 0, 87, 0.08);;
 $default-color-hover-light:rgba(0, 0, 0, 0.04); */
 
-$disabled-color:rgba(0, 0, 0, 0.12);
+$disabled-color: rgba(0, 0, 0, 0.12);
 $disabled-font-color: rgba(0, 0, 0, 0.26);
 
 $font-family: "Roboto", sans-serif;
 
-$elevation:0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%)
+$elevation: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%),
+	0px 1px 5px 0px rgb(0 0 0 / 12%);
