@@ -3,51 +3,44 @@
 
 
 .dwrBackground {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: gray;
-    opacity: 0.8;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 1;
     z-index: 1;
+
+    display: flex;
+    align-items: center;
 }
 
 .dwr {
-    position: absolute;
-    z-index: 2;
-    background-color: lightcyan;
-    padding: 16px;
+    z-index: 1200;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%,
 };
-
-$anchor-map: (
-    left: (
-        left: 0,
-        top: 50%,
-        transform: translateY(-50%),
-        background-color: red,
-    ),
-    right: (
-        right: 0,
-        top: 50%,
-        transform: translateY(-50%),
-        background-color: green,
-    ),
-    top: (
-
-    ),
-    bottom: (
-
-    )
-);
 
 @mixin anchor-variant-class($anchor, $variant) {
     .dwr-#{$anchor}-#{$variant} {
         @if $anchor == "left" {
             left: 0;
-            height: 100%;
         }
         @else if $anchor == "right" {
             right: 0;
-            height: 100%;
+        }
+
+        @if $variant == "persistent" {
+            flex: 0, 0, auto;
+        }
+        @else if $variant == "temporary" {
+            position: fixed;
+            top: 0;
         }
     }
 }

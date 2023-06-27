@@ -22,18 +22,18 @@ export interface DrawerProps extends React.ComponentPropsWithoutRef<"div"> {
     * Used to decide the color of the appearance
     **/
     open?: boolean;
-    width: number;
+    width?: number;
     onClose?: Function;
 }
 
 const Drawer: FC<DrawerProps> = ({
     anchor = "left",
-    variant = "permanent",
+    variant = "temporary",
     open = true,
-    width = 0,
+    width = 240,
     children,
     onClose,
-    className,
+    className = "myDrawer",
     ...rest
 }) => {
     const constructClassName: () => string = () => {
@@ -49,12 +49,17 @@ const Drawer: FC<DrawerProps> = ({
     return (
         <div
             className={className ? " " + className : ""}
-            style={open ? {} : { display: "none" }}
+            style={open ? {} : { visibility: "hidden" }}
         >
-            <div
-                className="dwrBackground"
-                onClick={handleClose}
-            ></div>
+            {(() => {
+                console.log(variant)
+                if(variant === "temporary") {
+                    return <div
+                    className="dwrBackground"
+                    onClick={handleClose}
+                ></div>
+                }
+            })()}
             <div
                 style={width ? { width: `${width}px` } : {}}
                 className={constructClassName()}
