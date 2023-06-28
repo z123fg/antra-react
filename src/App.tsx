@@ -9,8 +9,8 @@ function App() {
       <MyButton>Submit</MyButton>
       <MyButton variant="outlined" color="secondary" size="small">submit</MyButton>
       <Accordion
-        summary="What is React?"
-        details="React is a front end JavaScript framework"
+        summary="Sample Accordion"
+        details="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
         expandIcon="+"
       />
     </div>

@@ -21,9 +21,11 @@
     background-color: #fff;
     border-top: 1px solid #ccc;
     overflow: hidden;
+    max-height: 0;
     transition: max-height 0.3s ease-out;
   }
 
   .accordion.expanded .accordion-details {
     max-height: 200px;
+    transition: max-height 0.3s ease-out;
   }
