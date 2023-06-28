@@ -10,7 +10,11 @@ function App() {
       <MyButton variant="outlined" color="secondary" size="small">submit</MyButton>
       <Accordion
         summary="Sample Accordion"
-        details="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
+        details={[
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "Suspendisse malesuada lacus ex,",
+          "sit amet blandit leo lobortis eget."
+        ]}
         expandIcon="+"
       />
     </div>

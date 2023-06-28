@@ -3,7 +3,7 @@ import './_Accordion.scss';
 
 interface AccordianProps {
     summary: ReactNode;
-    details: ReactNode;
+    details: ReactNode[];
     expandIcon: ReactNode;
     expanded?: boolean;
     onChange?: (expanded: boolean) => void;
@@ -32,11 +32,11 @@ const Accordion: FC<AccordianProps> = ({
                     {expandIcon}
                 </div>
             </div>
-            {isExpanded && (
-                <div className="accordion-details">
-                    {details}
+            {isExpanded && details.map((detail, index) => (
+                <div className="accordion-details" key={index}>
+                    {detail}
                 </div>
-            )}
+            ))}
         </div>
     );
 };
