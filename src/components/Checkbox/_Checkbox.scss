@@ -1,0 +1,173 @@
+@use "../../scss/variable";
+@use "../../scss/mixin";
+
+
+// /* Customize the label (the container) */
+// .container {
+//   display: flex;
+//   position: relative;
+//   padding-left: 35px;
+//   margin-bottom: 12px;
+//   cursor: pointer;
+//   font-size: 22px;
+//   -webkit-user-select: none;
+//   -moz-user-select: none;
+//   -ms-user-select: none;
+//   user-select: none;
+// }
+
+// /* Hide the browser's default checkbox */
+// .container input {
+//   position: absolute;
+//   opacity: 0;
+//   cursor: pointer;
+//   height: 0;
+//   width: 0;
+// }
+
+// /* Create a custom checkbox */
+// .checkmark {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   height: 25px;
+//   width: 25px;
+//   background-color: #eee;
+// }
+
+// /* On mouse-over, add a grey background color */
+// .container:hover input ~ .checkmark {
+//   background-color: #ccc;
+// }
+
+// /* When the checkbox is checked, add a blue background */
+// .container input:checked ~ .checkmark {
+//   background-color: #2196F3;
+// }
+
+// /* Create the checkmark/indicator (hidden when not checked) */
+// .checkmark:after {
+//   content: "";
+//   position: absolute;
+//   display: none;
+// }
+
+// /* Show the checkmark when checked */
+// .container input:checked ~ .checkmark:after {
+//   display: block;
+// }
+
+// /* Style the checkmark/indicator */
+// .container .checkmark:after {
+//   left: 9px;
+//   top: 5px;
+//   width: 5px;
+//   height: 10px;
+//   border: solid white;
+//   border-width: 0 3px 3px 0;
+//   -webkit-transform: rotate(45deg);
+//   -ms-transform: rotate(45deg);
+//   transform: rotate(45deg);
+// }
+
+.checkbox-label-container {
+  display: flex;
+  align-items: center;
+}
+
+
+.checkbox-container-small {
+  display: flex;
+  align-items: center;
+  width: 38px;
+height: 38px;
+padding: 9px;
+box-sizing: border-box;
+}
+
+.checkbox-container-medium {
+  display: flex;
+  align-items: center;
+  width: 42px;
+height: 42px;
+padding: 9px;
+box-sizing: border-box;
+}
+
+
+
+.checkbox-small {
+  width: 15px;
+  height: 15px;
+}
+
+.checkbox-medium {
+  width: 24px;
+  height: 24px;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkmark {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border: 2px solid rgba(0, 0, 0, 0.54);
+  border-radius: 2px;
+}
+
+.checkmark-small {
+  width: 15px;
+  height: 15px;
+}
+
+.checkmark-medium {
+  width: 24px;
+  height: 24px;
+}
+
+
+// $color-map: (
+//     primary: (
+//         default: variable.$primary-color,
+//         hover: variable.$primary-color-hover,
+//         disabled: rgba(0, 0, 0, 0.12),
+//         textColor: #ffffff,
+//     ),
+//     secondary: (
+//         default: variable.$secondary-color,
+//         hover: variable.$secondary-color-hover,
+//         disabled: rgba(0, 0, 0, 0.12),
+//         textColor: #ffffff,
+//     ),
+//     default: (
+//         default: variable.$default-color,
+//         hover: variable.$default-color-hover,
+//         disabled: rgba(0, 0, 0, 0.12),
+//         textColor: rgba(0, 0, 0, 0.87),
+//     ),
+// );
+
+
+
+
+// @mixin color-class($color) {
+//   .checkbox-#{$color} {
+//     width: 100px;
+//     background-color: map-get(map-get($color-map, $color), "default");
+//   }
+// }
+
+// $colors: ("primary", "secondary", "default");
+
+// @mixin generate-color-classes {
+//       @each $color in $colors {
+//           @include color-class($color);
+//       }
+// }
+
+// @include generate-color-classes();
