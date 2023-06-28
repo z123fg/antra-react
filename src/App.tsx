@@ -16,8 +16,17 @@ function App() {
 				color="primary"
 				size="small"
 			/>
-			<Switch labelContext={"Switch"} color="secondary" size="medium" />
-			<Switch labelContext={"Switch"} color="default" size="medium" />
+			<Switch
+				labelContext={"Switch"}
+				color="secondary"
+				size="medium"
+				callbackFns={[
+					() => {
+						alert("hi");
+					},
+				]}
+			/>
+			<Switch color="default" size="medium" />
 		</div>
 	);
 }

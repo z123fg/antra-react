@@ -8,11 +8,6 @@ export interface SwitchProps extends React.ComponentPropsWithoutRef<"switch"> {
 	checked?: boolean;
 	checkedIcon?: React.ReactNode;
 	color?: "primary" | "secondary" | "default";
-	// | "warning"
-	// | "error"
-	// | "info"
-	// | "success"
-	// | "string";
 	size?: "small" | "medium" | string;
 	defaultChecked?: boolean;
 	disabled?: boolean;
@@ -21,7 +16,7 @@ export interface SwitchProps extends React.ComponentPropsWithoutRef<"switch"> {
 	icon?: React.ReactNode;
 	id?: string;
 	className?: string;
-	labelContext?: string | boolean;
+	labelContext?: string;
 	callbackFns?: CallBack[];
 }
 
@@ -34,7 +29,7 @@ const Switch: React.FC<SwitchProps> = ({
 	size = "medium",
 	required = false,
 	className = "",
-	labelContext = false,
+	labelContext,
 	callbackFns = [],
 	...rest
 }) => {
@@ -58,37 +53,46 @@ const Switch: React.FC<SwitchProps> = ({
 	};
 
 	return (
-		<div
-			className={
-				constructClassName("switch") + (className ? " " + className : "")
-			}
-			onClick={handleClick}
-		>
-			<input
-				type="checkbox"
+		<div className="wrapper">
+			<div
 				className={
-					constructClassName("checkbox") + (className ? " " + className : "")
+					constructClassName("switch") + (className ? " " + className : "")
 				}
-				checked={checkStatus}
-				disabled={disabled}
-				defaultChecked={defaultChecked}
-			/>
-
-			<span
-				className={
-					constructClassName("span") + (className ? " " + className : "")
-				}
-				style={{
-					backgroundColor: bgColor,
-				}}
+				onClick={handleClick}
 			>
+				<input
+					type="checkbox"
+					className={
+						constructClassName("checkbox") + (className ? " " + className : "")
+					}
+					checked={checkStatus}
+					disabled={disabled}
+					defaultChecked={defaultChecked}
+				/>
+
 				<span
 					className={
-						constructClassName("span-inner") +
-						(className ? " " + className : "")
+						constructClassName("span") + (className ? " " + className : "")
 					}
-				></span>
-			</span>
+					style={{
+						backgroundColor: bgColor,
+					}}
+				>
+					<span
+						className={
+							constructClassName("span-inner") +
+							(className ? " " + className : "")
+						}
+					></span>
+				</span>
+			</div>
+			<label
+				className={
+					constructClassName("label") + (className ? " " + className : "")
+				}
+			>
+				{labelContext}
+			</label>
 		</div>
 	);
 };
