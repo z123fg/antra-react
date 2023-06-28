@@ -1,0 +1,208 @@
+@use "../../scss/variable";
+@use "../../scss/mixin";
+
+.switch {
+	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+
+	box-sizing: border-box;
+	z-index: 0;
+	vertical-align: middle;
+}
+
+$color-map: (
+	primary: (
+		default: variable.$primary-color,
+		hover: variable.$primary-color-hover,
+		disabled: rgba(0, 0, 0, 0.12),
+		textColor: #ffffff,
+	),
+	secondary: (
+		default: variable.$secondary-color,
+		hover: variable.$secondary-color-hover,
+		disabled: rgba(0, 0, 0, 0.12),
+		textColor: #ffffff,
+	),
+	default: (
+		default: variable.$default-color,
+		hover: variable.$default-color-hover,
+		disabled: rgba(0, 0, 0, 0.12),
+		textColor: rgba(0, 0, 0, 0.87),
+	),
+	unchecked: (
+		default: rgba(black, 0.5),
+	),
+);
+
+@mixin color-class($color) {
+	.span-#{$color} {
+		border: none;
+		background: none;
+		background-color: rgba(
+			map-get(map-get($color-map, $color), "default"),
+			0.5
+		);
+	}
+
+	.span-inner-#{$color} {
+		border: none;
+		background: none;
+		background-color: map-get(map-get($color-map, $color), "default");
+		@if $color == "unchecked" {
+			background-color: white;
+		}
+	}
+
+	.span-inner-#{$color}:hover {
+		background-color: rgba(
+			map-get(map-get($color-map, $color), "default"),
+			0.08
+		);
+	}
+
+	.span-#{$color}:disabled {
+		background: none;
+		color: variable.$disabled-font-color;
+
+		pointer-events: none;
+	}
+
+	.span-ripple-#{$color} {
+		pointer-events: none;
+		animation: rippleEffect 0.6s linear;
+		border-radius: 50%;
+
+		background-color: map-get(map-get($color-map, $color), "hover");
+	}
+}
+
+$colors: ("primary", "secondary", "default", "unchecked");
+
+@mixin generate-color-classes {
+	@each $color in $colors {
+		@include color-class($color);
+	}
+}
+
+@include generate-color-classes();
+
+@keyframes rippleEffect {
+	0% {
+		width: 0px;
+		height: 0px;
+		opacity: 0.3;
+	}
+	50% {
+		width: 75px;
+		height: 75px;
+		opacity: 0.1;
+	}
+	100% {
+		width: 150px;
+		height: 150px;
+		opacity: 0;
+	}
+}
+
+.switch-small {
+	width: 40px;
+	height: 24px;
+	padding: 7px;
+	span {
+		@include mixin.font-small;
+		pointer-events: none;
+	}
+}
+
+.switch-medium {
+	width: 58px;
+	height: 38px;
+	padding: 12px;
+	span {
+		@include mixin.font-medium;
+		pointer-events: none;
+	}
+}
+
+.span {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	border-radius: 20px;
+	// background-color: rgba(currentColor, 0.5);
+}
+
+.span-medium {
+	width: 100%;
+	height: 100%;
+	border-radius: 7px;
+	display: flex;
+	align-items: center;
+}
+
+.span-small {
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+}
+
+.span-inner {
+	box-shadow: 0px 1px 3px 0px #0000001f;
+	box-shadow: 0px 1px 1px 0px #00000024;
+	box-shadow: 0px 2px 1px 0px #00000033;
+}
+
+.span-medium > .span-inner {
+	content: "";
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	left: -4px;
+	transition: all 0.2s;
+}
+
+.span-small > .span-inner {
+	content: "";
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	left: -2px;
+	transition: all 0.2s;
+}
+
+.checkbox:checked + .span-medium > .span-inner {
+	left: 18px;
+}
+
+.checkbox:checked + .span-small > .span-inner {
+	left: 12px;
+}
+
+.checkbox {
+	display: none;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.label {
+	font-family: Roboto;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: 0.15000000596046448px;
+	text-align: left;
+}
